@@ -44,6 +44,21 @@ public class Conexion_BD{
         }
     }
     
+    public ResultSet obtenerDatosporIDEstudioLaboratorio(int id){
+        Connection cn = conexion();
+        Statement st;
+        ResultSet rs = null;
+        try{
+            st = cn.createStatement();
+            rs = st.executeQuery("SELECT Caracter_EstuLab, Tipo_EstuLab FROM EstudioLaboratorio WHERE id_EstuLab = " + id +"");
+            
+        }catch(SQLException ex){
+            System.out.println("Error al obtener registro de estudio de laboratorio " + ex.getMessage());
+        }
+        
+        return rs;
+    }
+    
     public ResultSet obtenerExpedienteClinico(String RFC){
         Connection cn = conexion();
         Statement st;
