@@ -78,7 +78,8 @@ public class TDA_Expedientes {
         String sql = "select id_ExpedienteClinico from ExpedienteClinico where RFC_Derechoh = '"+rfc+"' and TiSang_ExpedienteClinico= '"+sangre+"';";
    ResultSet r = stmt.executeQuery(sql);//consultas regresa algo executeUpdate
                     if(r.next()==true){
-                        getNumExp();
+                        numExp=r.getString("id_ExpedienteClinico");
+                        javax.swing.JOptionPane.showMessageDialog(null, "Obteniendo");
                     }
             }catch(Exception e){
         JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
