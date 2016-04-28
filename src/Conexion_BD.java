@@ -8,7 +8,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 
-public class Conexion_BD {
+public class Conexion_BD{
     
          
     public static Connection conexion()
@@ -42,6 +42,57 @@ public class Conexion_BD {
         {
             return con;
         }
+    }
+    
+    public ResultSet obtenerDatosporIDEstudioLaboratorio(int id){
+        Connection cn = conexion();
+        Statement st;
+        ResultSet rs = null;
+        try{
+            st = cn.createStatement();
+            rs = st.executeQuery("SELECT Caracter_EstuLab, Tipo_EstuLab FROM EstudioLaboratorio WHERE id_EstuLab = " + id +"");
+            
+        }catch(SQLException ex){
+            System.out.println("Error al obtener registro de estudio de laboratorio " + ex.getMessage());
+        }
+        
+        return rs;
+    }
+    
+    public ResultSet obtenerExpedienteClinico(String RFC){
+        Connection cn = conexion();
+        Statement st;
+        ResultSet rs = null;
+        try{
+            st = cn.createStatement();
+            rs = st.executeQuery("SELECT id_ExpedienteClinico FROM ExpedienteClinico WHERE RFC_Derechoh = '" + RFC +"'");
+            
+        }catch(SQLException ex){
+            System.out.println("Error al obtener el expediente clinico " + ex.getMessage());
+        }
+        
+        return rs;
+    }
+    
+    public boolean insertarNuevoAnalisisClinicoDoctor(String fecha, String caracter, String tipo, int numExp){
+        try{
+            Connection cn = conexion();
+            Statement st = cn.createStatement();
+            st.executeUpdate("INSERT INTO EstudioLaboratorio (Estado_EstuLab, FechaOrden_EstuLab, Caracter_EstuLab, Tipo_EstuLab, id_ExpedienteClinico) "
+                    + "VALUES ('P','" + fecha +"', '"+ caracter +"', '"+ tipo +"', 1)");
+            cn.close();
+            return true;
+            
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+    
+    
+    public void prueba(){
+        System.out.println("Hola");
+        boolean estado = false;
     }
     
     public ResultSet SeleccionarTodoMedicamento(){
