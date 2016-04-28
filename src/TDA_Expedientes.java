@@ -33,7 +33,7 @@ public class TDA_Expedientes {
             try{
                Statement stmt = miCon.createStatement();
         String sql = 
-   "insert into `SihISSSTE_DB`.`HistorialClinico`(`id_ExpedienteClinico`, `Fecha_HistorialClinico`, `Hora_HistorialClinico`, `Estatura_HistorialClinico`, `Peso_ExpedienteClinico`, `FCardiaca_HistorialClinico`, `FRespiratoria_HistorialClinico`, `Temp_HistorialClinico`, `CabezaPerCef_HistorialClinico`, `PerToraxico_HistorialClinico`, `PerAbdominal_HistorialClinico`, `Presion_Historial`)values('"+numExp
+   "insert into `HistorialClinico`(`id_ExpedienteClinico`, `Fecha_HistorialClinico`, `Hora_HistorialClinico`, `Estatura_HistorialClinico`, `Peso_ExpedienteClinico`, `FCardiaca_HistorialClinico`, `FRespiratoria_HistorialClinico`, `Temp_HistorialClinico`, `CabezaPerCef_HistorialClinico`, `PerToraxico_HistorialClinico`, `PerAbdominal_HistorialClinico`, `Presion_Historial`)values('"+numExp
       +"', '"+fecha+"', '"+hora+"', '"+estatura+"', '"+peso+"', '"+frecuenciaC+"', '"+frecuenciaR+"', '"+temp+"', '"+percef+"', '"+perTor+"', '"+
                         perAb+"', '"+presion+"');";
         stmt.executeUpdate(sql);
@@ -55,7 +55,7 @@ public class TDA_Expedientes {
         if(miCon!=null){
             try{
                Statement stmt = miCon.createStatement();
-        String sql = "insert into `SihISSSTE_DB`.`ExpedienteClinico` (`RFC_Derechoh`, `TiSang_ExpedienteClinico`)values('"+rfc+"', '"+sangre+"');";
+        String sql = "insert into `ExpedienteClinico` (`RFC_Derechoh`, `TiSang_ExpedienteClinico`)values('"+rfc+"', '"+sangre+"');";
         stmt.executeUpdate(sql);
                  JOptionPane.showMessageDialog(null, "Registro exitoso");
                          
@@ -88,20 +88,28 @@ public class TDA_Expedientes {
         return true;
     }
     
-    /*private int historialReciente(){
-        String id=getNumExp();
+    /*private int historialReciente(String RFC){
+       this.rfc=RFC;
+    numExpediente();
+    String id=getNumExp();
         Connection miCon = (new Conexion_BD()).conexion();
         if(miCon!=null){
             try{
                Statement stmt = miCon.createStatement();
             String sql= "Select id_HistorialClinico from HistorialClinico where id_ExpedienteClinico= '"+id+"';";
             ResultSet r = stmt.executeQuery(sql);//consultas regresa algo executeUpdate
-                    if(r.next()==true){
-                        numExpediente();
+                    while(r.next()!=null){
+                       if(r.next()==null){
+    return r.getString("id_historial"); 
+    
                         
-                      miCon.close();
-                      
+                      miCon.close();}
+                    else
+                       r.next();
+                    miCon.close();
+                    return null; 
                     }
+    
     }catch(Exception e){
        
     }
