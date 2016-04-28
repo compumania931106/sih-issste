@@ -33,9 +33,9 @@ public class TDA_Expedientes {
             try{
                Statement stmt = miCon.createStatement();
         String sql = 
-   "insert into `HistorialClinico`(`id_ExpedienteClinico`, `Fecha_HistorialClinico`, `Hora_HistorialClinico`, `Estatura_HistorialClinico`, `Peso_ExpedienteClinico`, `FCardiaca_HistorialClinico`, `FRespiratoria_HistorialClinico`, `Temp_HistorialClinico`, `CabezaPerCef_HistorialClinico`, `PerToraxico_HistorialClinico`, `PerAbdominal_HistorialClinico`, `Presion_Historial`)values('"+numExp
+   "insert into `HistorialClinico`(`id_ExpedienteClinico`, `Fecha_HistorialClinico`, `Hora_HistorialClinico`, `Estatura_HistorialClinico`, `Peso_ExpedienteClinico`, `FCardiaca_HistorialClinico`, `FRespiratoria_HistorialClinico`, `Temp_HistorialClinico`, `CabezaPerCef_HistorialClinico`, `PerToraxico_HistorialClinico`, `PerAbdominal_HistorialClinico`)values('"+numExp
       +"', '"+fecha+"', '"+hora+"', '"+estatura+"', '"+peso+"', '"+frecuenciaC+"', '"+frecuenciaR+"', '"+temp+"', '"+percef+"', '"+perTor+"', '"+
-                        perAb+"', '"+presion+"');";
+                        perAb+"');";
         stmt.executeUpdate(sql);
                  JOptionPane.showMessageDialog(null, "Registro exitoso");
                          
@@ -75,11 +75,14 @@ public class TDA_Expedientes {
         if(miCon!=null){
             try{
                Statement stmt = miCon.createStatement();
-        String sql = "select id_ExpedienteClinico from ExpedienteClinico where RFC_Derechoh = '"+rfc+"' and TiSang_ExpedienteClinico= '"+sangre+"';";
+        String sql = "select id_ExpedienteClinico from ExpedienteClinico where RFC_Derechoh = '"+rfc+"';";
    ResultSet r = stmt.executeQuery(sql);//consultas regresa algo executeUpdate
                     if(r.next()==true){
                         numExp=r.getString("id_ExpedienteClinico");
                         javax.swing.JOptionPane.showMessageDialog(null, "Obteniendo");
+                        return true;
+                    }else{
+                        miCon.close();
                     }
             }catch(Exception e){
         JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
