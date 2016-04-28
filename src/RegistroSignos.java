@@ -1,5 +1,6 @@
 
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -33,7 +34,6 @@ public class RegistroSignos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         txtRFCD = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtFecha = new javax.swing.JTextField();
@@ -41,7 +41,6 @@ public class RegistroSignos extends javax.swing.JFrame {
         txtHora = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        cmbSangre = new javax.swing.JComboBox();
         jLabel8 = new javax.swing.JLabel();
         txtEstatura = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -68,6 +67,7 @@ public class RegistroSignos extends javax.swing.JFrame {
         txtNumExp = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         txtPerCef = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -93,10 +93,6 @@ public class RegistroSignos extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(10, 70, 190, 50);
 
-        jLabel5.setText("Tipo de Sangre ");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 150, 120, 17);
-
         txtRFCD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRFCDActionPerformed(evt);
@@ -107,7 +103,7 @@ public class RegistroSignos extends javax.swing.JFrame {
 
         jLabel6.setText("Fecha");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(440, 160, 70, 17);
+        jLabel6.setBounds(20, 140, 70, 17);
 
         txtFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,13 +111,13 @@ public class RegistroSignos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtFecha);
-        txtFecha.setBounds(520, 150, 160, 30);
+        txtFecha.setBounds(210, 140, 160, 30);
 
         jLabel7.setText("Hora");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(710, 150, 50, 17);
+        jLabel7.setBounds(30, 200, 50, 17);
         getContentPane().add(txtHora);
-        txtHora.setBounds(760, 140, 160, 27);
+        txtHora.setBounds(210, 190, 160, 27);
 
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -141,15 +137,6 @@ public class RegistroSignos extends javax.swing.JFrame {
         });
         getContentPane().add(btnCancelar);
         btnCancelar.setBounds(200, 570, 130, 40);
-
-        cmbSangre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione el tipo de Sangre", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "" }));
-        cmbSangre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbSangreActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmbSangre);
-        cmbSangre.setBounds(210, 150, 160, 27);
 
         jLabel8.setText("Estatura");
         getContentPane().add(jLabel8);
@@ -189,7 +176,7 @@ public class RegistroSignos extends javax.swing.JFrame {
 
         jLabel13.setText("Edad");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(20, 200, 35, 17);
+        jLabel13.setBounds(420, 150, 35, 17);
 
         txtEdad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,7 +192,7 @@ public class RegistroSignos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtEdad);
-        txtEdad.setBounds(210, 200, 160, 27);
+        txtEdad.setBounds(520, 140, 160, 27);
 
         jLabel14.setText("Temperatura");
         getContentPane().add(jLabel14);
@@ -249,6 +236,15 @@ public class RegistroSignos extends javax.swing.JFrame {
         getContentPane().add(txtPerCef);
         txtPerCef.setBounds(750, 410, 150, 27);
 
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(740, 200, 60, 29);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -259,13 +255,6 @@ public class RegistroSignos extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void cmbSangreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSangreActionPerformed
-        TDA_Expedientes fu=new TDA_Expedientes();
-        fu.setSangre((String)cmbSangre.getSelectedItem());
-        fu.setRfc(txtRFCD.getText());
-        fu.registrarExpediente();
-    }//GEN-LAST:event_cmbSangreActionPerformed
 
     private void txtEstaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstaturaActionPerformed
         // TODO add your handling code here:
@@ -319,6 +308,19 @@ public class RegistroSignos extends javax.swing.JFrame {
     private void txtRFCDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRFCDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRFCDActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         if(txtRFCD.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "El campo RFC se encuentra vacío, por favor llenelo");
+        }else{
+        TDA_Expedientes te=new TDA_Expedientes(txtRFCD.getText());
+        if(te.numExpediente()){
+            txtNumExp.setText(te.getNumExp());
+        }else{
+                showMessageDialog(null,"No encontrado");
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
                                 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -355,7 +357,7 @@ public class RegistroSignos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JComboBox cmbSangre;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -371,7 +373,6 @@ public class RegistroSignos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

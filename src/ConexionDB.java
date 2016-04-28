@@ -24,7 +24,7 @@ public class ConexionDB {
     public Connection conexion(){
         try{
            Class.forName("com.mysql.jdbc.Driver");
-           con = DriverManager.getConnection("jdbc:mysql://localhost/sihissste_db", "root", "Thebigboss931106{}");
+           con = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sihissste_db", "vmcc", "sih-issste");
            System.out.println("Conexion exitosa");
         }catch(ClassNotFoundException | SQLException e){
             System.out.println("Problemas con la conexion (" + e.getMessage().toString() + ")");

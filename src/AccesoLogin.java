@@ -44,7 +44,7 @@ public class AccesoLogin {
                           //this.hide();
                          }
                          if(r.getString("id_Puesto").equals("3")){
-                             RegistroSignos rs=new RegistroSignos();
+                             MenuEnfermera rs=new MenuEnfermera();
                              rs.setVisible(true);
                          }
                          miCon.close();

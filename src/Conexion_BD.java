@@ -18,7 +18,7 @@ public class Conexion_BD {
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/sihissste_db", "root", "Thebigboss931106{}");
+            con = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sihissste_db", "vmcc", "sih-issste");
             System.out.println("Conexion exitosa");
         }
         catch(ClassNotFoundException ex)

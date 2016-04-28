@@ -19,6 +19,14 @@ public class TDA_Expedientes {
             perTor, perAb, percef, numExp;
     private int edad;
     
+    public TDA_Expedientes(String rfc){
+        setRfc(rfc);
+    }
+    
+    public TDA_Expedientes(){
+    
+}
+    
     public boolean registrarHistorial(){
         Connection miCon = (new Conexion_BD()).conexion();
         if(miCon!=null){
@@ -79,6 +87,36 @@ public class TDA_Expedientes {
         }
         return true;
     }
+    
+    /*private int historialReciente(){
+        String id=getNumExp();
+        Connection miCon = (new Conexion_BD()).conexion();
+        if(miCon!=null){
+            try{
+               Statement stmt = miCon.createStatement();
+            String sql= "Select id_HistorialClinico from HistorialClinico where id_ExpedienteClinico= '"+id+"';";
+            ResultSet r = stmt.executeQuery(sql);//consultas regresa algo executeUpdate
+                    if(r.next()==true){
+                        numExpediente();
+                        
+                      miCon.close();
+                      
+                    }
+    }catch(Exception e){
+       
+    }
+        }
+      
+    }*/
+    
+    /*public boolean actualizarHistorial(){
+        Connection miCon = (new Conexion_BD()).conexion();
+        if(miCon!=null){
+            try{
+               Statement stmt = miCon.createStatement();
+               String sql = 'Update '
+    }*/
+    
     public String getRfc() {
         return rfc;
     }
