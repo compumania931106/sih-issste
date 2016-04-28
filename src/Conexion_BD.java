@@ -46,6 +46,7 @@ public class Conexion_BD {
     
     public void prueba(){
         System.out.println("Hola");
+        boolean estado = false;
     }
     
     public ResultSet SeleccionarTodoMedicamento(){
