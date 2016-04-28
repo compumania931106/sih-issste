@@ -44,6 +44,10 @@ public class Conexion_BD {
         }
     }
     
+    public void prueba(){
+        System.out.println("Hola");
+    }
+    
     public ResultSet SeleccionarTodoMedicamento(){
         Connection cn = conexion();
         Statement st;
