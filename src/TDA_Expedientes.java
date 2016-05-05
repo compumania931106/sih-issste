@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class TDA_Expedientes {
     private String rfc, sangre, fecha, hora, estatura, presion, temp, peso, IMC, frecuenciaC, frecuenciaR,
-            perTor, perAb, percef, numExp;
+            perTor, perAb, percef, numExp, diagnostico, observaciones, pronostico;
     private int edad;
     
     public TDA_Expedientes(String rfc){
@@ -33,9 +33,9 @@ public class TDA_Expedientes {
             try{
                Statement stmt = miCon.createStatement();
         String sql = 
-   "insert into `HistorialClinico`(`id_ExpedienteClinico`, `Fecha_HistorialClinico`, `Hora_HistorialClinico`, `Estatura_HistorialClinico`, `Peso_ExpedienteClinico`, `FCardiaca_HistorialClinico`, `FRespiratoria_HistorialClinico`, `Temp_HistorialClinico`, `CabezaPerCef_HistorialClinico`, `PerToraxico_HistorialClinico`, `PerAbdominal_HistorialClinico`)values('"+numExp
+   "insert into `HistorialClinico`(`id_ExpedienteClinico`, `Fecha_HistorialClinico`, `Hora_HistorialClinico`, `Estatura_HistorialClinico`, `Peso_ExpedienteClinico`, `FCardiaca_HistorialClinico`, `FRespiratoria_HistorialClinico`, `Temp_HistorialClinico`, `CabezaPerCef_HistorialClinico`, `PerToraxico_HistorialClinico`, `PerAbdominal_HistorialClinico`, `Presion_Historial`)values('"+numExp
       +"', '"+fecha+"', '"+hora+"', '"+estatura+"', '"+peso+"', '"+frecuenciaC+"', '"+frecuenciaR+"', '"+temp+"', '"+percef+"', '"+perTor+"', '"+
-                        perAb+"');";
+                        perAb+"'. '"+presion+"');";
         stmt.executeUpdate(sql);
                  JOptionPane.showMessageDialog(null, "Registro exitoso");
                          
@@ -92,7 +92,35 @@ public class TDA_Expedientes {
         return true;
     }
     
-    /*private int historialReciente(String RFC){
+    public boolean consultaExp(){
+        Connection miCon = (new Conexion_BD()).conexion();
+        if(miCon!=null){
+            try{
+               Statement stmt = miCon.createStatement();
+        String sql="select h.id_ExpedienteClinico, h.Presion_Historial, h.Temp_HistorialClinico, e.TiSang_ExpedienteClinico, h.FCardiaca_HistorialClinico, h.FRespiratoria_HistorialClinico, h.PerAbdominal_HistorialClinico from HistorialClinico h inner join ExpedienteClinico e on e.id_ExpedienteClinico = h.id_ExpedienteClinico where RFC_Derechoh= '"+rfc+"';";
+   ResultSet r = stmt.executeQuery(sql);//consultas regresa algo executeUpdate
+                    while(r.next()==true){
+                        numExp=r.getString("id_ExpedienteClinico");
+                        presion=r.getString("Presion_Historial");
+                        temp=r.getString("Temp_HistorialClinico");
+                        sangre=r.getString("TiSang_ExpedienteClinico");
+                        frecuenciaC=r.getString("FCardiaca_HistorialClinico");
+                        frecuenciaR=r.getString("FRespiratoria_HistorialClinico");
+                        perAb=r.getString("PerAbdominal_HistorialClinico");
+                        javax.swing.JOptionPane.showMessageDialog(null, "Obteniendo");
+                        return true;
+                    }//else{
+                        miCon.close();
+                    //}
+            }catch(Exception e){
+        JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+        }
+        return true;
+    }
+    
+    private int historialReciente(String RFC){
        this.rfc=RFC;
     numExpediente();
     String id=getNumExp();
@@ -102,31 +130,35 @@ public class TDA_Expedientes {
                Statement stmt = miCon.createStatement();
             String sql= "Select id_HistorialClinico from HistorialClinico where id_ExpedienteClinico= '"+id+"';";
             ResultSet r = stmt.executeQuery(sql);//consultas regresa algo executeUpdate
-                    while(r.next()!=null){
-                       if(r.next()==null){
-    return r.getString("id_historial"); 
-    
-                        
-                      miCon.close();}
+                    while(r.next()!=false){
+                       if(r.next()==false){
+                           miCon.close();
+    return Integer.parseInt(r.getString("id_historial")); 
+                
+                  }
                     else
                        r.next();
                     miCon.close();
-                    return null; 
+                    return 0; 
                     }
     
     }catch(Exception e){
        
     }
         }
-      
-    }*/
+      return 0;
+    }
     
     /*public boolean actualizarHistorial(){
         Connection miCon = (new Conexion_BD()).conexion();
         if(miCon!=null){
             try{
                Statement stmt = miCon.createStatement();
-               String sql = 'Update '
+               //String sql = 'Update HistorialClinico set PadecActual_HistorialClinico='diagnostico', Diagnostico_HistorialClinica ='observaciones', '
+    }catch(Exception e){
+        
+    }
+        }
     }*/
     
     public String getRfc() {

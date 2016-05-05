@@ -1,3 +1,7 @@
+
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -29,106 +33,212 @@ public class ConsultaExpedientes extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtRFC = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtPresion = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtTemp = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtSangre = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtFrCard = new javax.swing.JTextField();
+        btnConsultar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtFR = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtPerAb = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txtNumExp = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono-SIH-ISSSTEico1_phixr1.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(650, 20, 186, 200);
 
         jLabel2.setText("Consulta de Expedientes");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 10, 280, 17);
 
         jLabel3.setText("RFC");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 50, 26, 17);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(130, 50, 190, 27);
 
-        jLabel4.setText("Presion Arterial");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 220, 140, 17);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(160, 220, 160, 27);
-
-        jLabel5.setText("Temperatura");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(360, 230, 100, 17);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(500, 220, 150, 27);
-
-        jLabel6.setText("Tipo de Sangre");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(20, 280, 130, 17);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(160, 280, 160, 27);
-
-        jLabel7.setText("Frecuencia Cardiaca");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(340, 290, 150, 17);
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(500, 280, 150, 27);
-
-        jButton1.setText("Consultar");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(300, 100, 100, 29);
-
-        jLabel8.setText("Frecuencia Respiratoria");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(20, 330, 170, 17);
-        getContentPane().add(jTextField6);
-        jTextField6.setBounds(160, 360, 160, 27);
-
-        jLabel9.setText("Perimetro Abdominal");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(340, 330, 160, 17);
-
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        txtRFC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                txtRFCActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(500, 360, 150, 27);
+
+        jLabel4.setText("Presion Arterial");
+
+        jLabel5.setText("Temperatura");
+
+        jLabel6.setText("Tipo de Sangre");
+
+        jLabel7.setText("Frecuencia Cardiaca");
+
+        btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Frecuencia Respiratoria");
+
+        jLabel9.setText("Perimetro Abdominal");
+
+        txtPerAb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPerAbActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Regresar");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(590, 460, 110, 29);
 
         jLabel10.setText("Expediente");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(360, 50, 90, 17);
-        getContentPane().add(jTextField8);
-        jTextField8.setBounds(470, 50, 140, 27);
-        getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(0, 170, 660, 10);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(470, 470, 470)
+                .addComponent(txtNumExp, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel3))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(300, 300, 300)
+                .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(650, 650, 650)
+                .addComponent(jLabel1))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(txtRFC, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(360, 360, 360)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(txtPresion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(txtTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(txtSangre, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(txtFrCard, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(txtFR, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180)
+                .addComponent(txtPerAb, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(590, 590, 590)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(txtNumExp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(btnConsultar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(txtRFC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel10)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(txtPresion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel5))
+                    .addComponent(txtTemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(txtSangre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel7))
+                    .addComponent(txtFrCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPerAb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(73, 73, 73)
+                .addComponent(jButton2))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void txtPerAbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPerAbActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_txtPerAbActionPerformed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+       if(txtRFC.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "El campo RFC se encuentra vacío, por favor llenelo");
+        }else{
+        TDA_Expedientes te=new TDA_Expedientes(txtRFC.getText());
+        if(te.consultaExp()){
+            txtNumExp.setText(te.getNumExp());
+            txtPresion.setText(te.getPresion());
+            txtTemp.setText(te.getTemp());
+            txtSangre.setText(te.getSangre());
+            txtFrCard.setText(te.getFrecuenciaC());
+            txtFR.setText(te.getFrecuenciaR());
+            txtPerAb.setText(te.getPerAb());
+            JOptionPane.showMessageDialog(this, "Correctamente realizado");
+        }else{
+                showMessageDialog(null,"No encontrado");
+            }
+        }
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    /*select h.id_ExpedienteClinico, e.RFC_Derechoh, h.Presion_Historial, Temp_HistorialClinico, e.TiSang_ExpedienteClinico, FCardiaca_HistorialClinico, FRespiratoria_HistorialClinico, PerAbdominal_HistorialClinico from HistorialClinico h 
+    inner join ExpedienteClinico e on h.id_ExpedienteClinico = e.id_ExpedienteClinico where RFC_Derechoh= 'LOHP840505AA0' */
+    private void txtRFCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRFCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRFCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,7 +276,7 @@ public class ConsultaExpedientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnConsultar;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -179,13 +289,13 @@ public class ConsultaExpedientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField txtFR;
+    private javax.swing.JTextField txtFrCard;
+    private javax.swing.JTextField txtNumExp;
+    private javax.swing.JTextField txtPerAb;
+    private javax.swing.JTextField txtPresion;
+    private javax.swing.JTextField txtRFC;
+    private javax.swing.JTextField txtSangre;
+    private javax.swing.JTextField txtTemp;
     // End of variables declaration//GEN-END:variables
 }

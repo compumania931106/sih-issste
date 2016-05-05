@@ -26,7 +26,7 @@ public class Informacion extends javax.swing.JFrame {
         TDA_Informacion a= new TDA_Informacion();
         Clear_Table();
         a.getDatos(model);
-        //a.setRFC(txtRFC.getText());
+        tblInfo.setEnabled(false);
         
     }
     public void Clear_Table(){
@@ -91,8 +91,8 @@ public class Informacion extends javax.swing.JFrame {
                         .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

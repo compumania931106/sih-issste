@@ -47,6 +47,14 @@ public class AccesoLogin {
                              MenuEnfermera rs=new MenuEnfermera();
                              rs.setVisible(true);
                          }
+                         if(r.getString("id_Puesto").equals("4")){
+                             VentanaLaboratorista vl=new VentanaLaboratorista();
+                             vl.setVisible(true);
+                         }
+                         if(r.getString("id_Puesto").equals("5")){
+                             VentanaFarmacologo vf=new VentanaFarmacologo();
+                             vf.setVisible(true);
+                         }
                          miCon.close();
                          return true;
                         }

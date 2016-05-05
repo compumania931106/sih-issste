@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
  * @author abril
  */
 public class TDA_Citas {
+    String rfc;
     
    public Object[] valores(){
         
@@ -66,7 +67,7 @@ public class TDA_Citas {
         
         try{
             Statement stmt=miCon.createStatement();
-            ResultSet res= stmt.executeQuery("SELECT * FROM CitaMedica");
+            ResultSet res= stmt.executeQuery("SELECT * FROM CitaMedica where status='A'");
             
             
             while(res.next()){
@@ -75,7 +76,7 @@ public class TDA_Citas {
                 String des=res.getString("Hora_CitaMedica");
                 String rfc=res.getString("RFC_Derechoh");
                 String con=res.getString("NoConsultorio");
-                boolean status=res.getBoolean("Status_CitaMedica");
+                //boolean status=res.getBoolean("Status_CitaMedica");
                 
                 //Object a=""+0;
                 
@@ -84,7 +85,7 @@ public class TDA_Citas {
                 s[2]=des;
                 s[3]=rfc;
                 s[4]= con;
-                s[5]=status;
+                //s[5]=status;
                 
                 modelo.addRow(s);
                 
@@ -101,5 +102,20 @@ public class TDA_Citas {
         
         
     }
+   
+   /*public boolean status(){
+       Connection miCon = (new Conexion_BD()).conexion();
+        if(miCon!=null){
+            try{
+               Statement stmt = miCon.createStatement();
+               //String sql = "Update CitaMedica set 'C' where"
+               miCon.close();
+               return true;
+   }catch(Exception e){
+       JOptionPane.showMessageDialog(null, "El campo fue actualizado correctamente");
+       return false;
+   }
     
+}
+   }*/
 }

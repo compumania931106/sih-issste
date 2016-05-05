@@ -29,17 +29,17 @@ public class TDA_Personal {
         if(miCon!=null){
             try{
                Statement stmt = miCon.createStatement();
-        String sql = "insert into `SihISSSTE_DB`.`Personal`(`RFC_Personal`, `Nombre_Personal`, `APaterno_Personal`, `AMaterno_Personal`, `Direccion_Personal`, `CodigoPos_Personal`, `TelefonoCasa_Personal`, `TelefonoCelular_Personal`, `HorarioTrab_Personal`, `CorreoElec_Personal`, `Password_Personal`, `NomEsp_Personal`, `FechaIniServicio_Personal`, `id_Puesto`, `id_Clinica`, `id_AreaT`)values('"
+        String sql = "insert into `sihissste_db`.`Personal`(`RFC_Personal`, `Nombre_Personal`, `APaterno_Personal`, `AMaterno_Personal`, `Direccion_Personal`, `CodigoPos_Personal`, `TelefonoCasa_Personal`, `TelefonoCelular_Personal`, `HorarioTrab_Personal`, `CorreoElec_Personal`, `Password_Personal`, `NomEsp_Personal`, `FechaIniServicio_Personal`, `id_Puesto`, `id_Clinica`, `id_AreaT`)values('"
                 +RFC+"', '"+nombre+"', '"+APat+"', '"+AMat+"', '"+Dir+"', '"+CP+"', '"
                 +telca+"', '"+telcel+"', '"+Hora+"', '"+correo+"', '"+pass+"', '"+especialidad+"', '"+fecha+"', '"+puesto+"', '"+clinica+"', '"+areaT+"');";
             stmt.executeUpdate(sql);
-                 //JOptionPane.showMessageDialog(null, "Registro exitoso");
+                 JOptionPane.showMessageDialog(null, "Registro exitoso");
                          
               miCon.close();
               return true;
             
             }catch(Exception e){
-               // JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+               JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
               return false;
               
             }
@@ -73,7 +73,7 @@ public class TDA_Personal {
           if(miCon!=null){
               try{
                Statement stmt = miCon.createStatement();
-        String sql ="UPDATE `SihISSSTE_DB`.`Personal` SET `id_Clinica`='"+clinica+"', `id_AreaT`='"+areaT+"' WHERE `RFC_Personal`='"+RFC+"';";
+        String sql ="UPDATE `sihissste_db`.`Personal` SET `id_Clinica`='"+clinica+"', `id_AreaT`='"+areaT+"' WHERE `RFC_Personal`='"+RFC+"';";
          stmt.executeUpdate(sql);
           JOptionPane.showMessageDialog(null, "Registro exitoso");
          miCon.close();
