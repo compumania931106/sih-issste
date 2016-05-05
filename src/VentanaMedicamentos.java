@@ -49,7 +49,7 @@ public class VentanaMedicamentos extends javax.swing.JFrame {
        
         try{
             while(rs.next()){
-                dfm.addRow(new Object[]{rs.getInt("id_Medicamentos"), rs.getString("NombreGen_Medicamentos"),rs.getString("Descripcion_Medicamento"),rs.getInt("Cantidad_Medicamento"), rs.getString("Presentacion")});
+                dfm.addRow(new Object[]{rs.getString("id_Medicamentos"), rs.getString("NombreGen_Medicamentos"),rs.getString("Descripcion_Medicamento"),rs.getInt("Cantidad_Medicamento"), rs.getString("Presentacion")});
             }
         }catch(Exception e){
             System.out.println("Error al cargar los datos");
@@ -66,7 +66,7 @@ public class VentanaMedicamentos extends javax.swing.JFrame {
         rs = cn.SeleccionarTodoMedicamento();
         try{
             while(rs.next()){
-                dfm.addRow(new Object[]{rs.getInt("id_Medicamentos"), rs.getString("NombreGen_Medicamentos"),rs.getString("Descripcion_Medicamento"),rs.getInt("Cantidad_Medicamento"), rs.getString("Presentacion")});
+                dfm.addRow(new Object[]{rs.getString("id_Medicamentos"), rs.getString("NombreGen_Medicamentos"),rs.getString("Descripcion_Medicamento"),rs.getInt("Cantidad_Medicamento"), rs.getString("Presentacion")});
             }
         }catch(Exception e){
             System.out.println("Error al cargar los datos");
@@ -293,7 +293,7 @@ public class VentanaMedicamentos extends javax.swing.JFrame {
         else{
             Conexion_BD cn = new Conexion_BD();
         
-            if(cn.InsertarMedicamentos(Integer.parseInt(jTextField2.getText()), jTextField1.getText().toUpperCase(), jTextField3.getText().toUpperCase(), Integer.parseInt(jTextField4.getText()), jTextField5.getText().toUpperCase())){
+            if(cn.InsertarMedicamentos(jTextField2.getText(), jTextField1.getText().toUpperCase(), jTextField3.getText().toUpperCase(), Integer.parseInt(jTextField4.getText()), jTextField5.getText().toUpperCase())){
                 this.llenarTabla();
                 jTextField1.setText("");
                 jTextField2.setText("");
@@ -309,7 +309,7 @@ public class VentanaMedicamentos extends javax.swing.JFrame {
             
             Conexion_BD cn = new Conexion_BD();
             
-            int resul = cn.actualizarCantidadMedicamento(Integer.parseInt(jTextField4.getText()), Integer.parseInt(jTextField2.getText()));
+            int resul = cn.actualizarCantidadMedicamento(Integer.parseInt(jTextField4.getText()), jTextField2.getText());
             
             if(resul == 1){
                 this.llenarTabla();
@@ -350,7 +350,7 @@ public class VentanaMedicamentos extends javax.swing.JFrame {
         
         else{
             Conexion_BD cn = new Conexion_BD();
-            rs = cn.buscarMedicamento(Integer.parseInt(jTextField2.getText()));
+            rs = cn.buscarMedicamento(jTextField2.getText());
             if(rs != null){
                 
                 try {

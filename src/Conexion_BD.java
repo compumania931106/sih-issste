@@ -101,7 +101,7 @@ public class Conexion_BD{
         ResultSet rs = null;
         try{
             st = cn.createStatement();
-            rs = st.executeQuery("SELECT * FROM medicamentos;");
+            rs = st.executeQuery("SELECT * FROM Medicamentos;");
         }catch(SQLException ex){
             System.out.println("Error al llenar la tabla de medicamentos");
         }
@@ -114,7 +114,7 @@ public class Conexion_BD{
         ResultSet rs = null;
         try{
             st = cn.createStatement();
-            rs = st.executeQuery("SELECT * FROM medicamentos WHERE NombreGen_Medicamentos LIKE '"+ cadena +"%'");
+            rs = st.executeQuery("SELECT * FROM Medicamentos WHERE NombreGen_Medicamentos LIKE '"+ cadena +"%'");
         }catch(SQLException ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -123,13 +123,13 @@ public class Conexion_BD{
     
     
     
-    public ResultSet buscarMedicamento(int id){
+    public ResultSet buscarMedicamento(String id){
         Connection cn = conexion();
         Statement st;
         ResultSet rs = null;
         try{
             st = cn.createStatement();
-            rs = st.executeQuery("SELECT * FROM medicamentos WHERE id_Medicamentos = "+ id +"");
+            rs = st.executeQuery("SELECT * FROM Medicamentos WHERE id_Medicamentos = '"+ id +"'");
         }catch(SQLException ex){
             System.out.println("Error al realiza consulta");
         }
@@ -137,9 +137,9 @@ public class Conexion_BD{
     }
     
     
-    public int actualizarMedicamentos(int idAct, String nombreAct, String descripAct, int cantAct, String presenAct, int id){
+    public int actualizarMedicamentos(String idAct, String nombreAct, String descripAct, int cantAct, String presenAct, int id){
     int resultado = 0;
-    String SQL = "UPDATE medicamentos SET id_Medicamentos = "+ idAct +", NombreGen_Medicamentos = '"+ nombreAct +"', Descripcion_Medicamentos = '"+ descripAct +"',Cantidad_Medicamento = "+ cantAct +", Presentacion = '"+ presenAct +"' WHERE id_Medicamento = "+ id +"";
+    String SQL = "UPDATE Medicamentos SET id_Medicamentos = '"+ idAct +"', NombreGen_Medicamentos = '"+ nombreAct +"', Descripcion_Medicamentos = '"+ descripAct +"',Cantidad_Medicamento = "+ cantAct +", Presentacion = '"+ presenAct +"' WHERE id_Medicamento = "+ id +"";
     try{
             Connection cn = conexion();
             Statement comando=cn.createStatement();
@@ -149,9 +149,9 @@ public class Conexion_BD{
         return resultado;
     }
     
-    public int actualizarCantidadMedicamento(int cantidad, int id){
+    public int actualizarCantidadMedicamento(int cantidad, String id){
         int resultado = 0;
-        String SQL = "UPDATE medicamentos SET Cantidad_Medicamento = "+ cantidad +" WHERE id_Medicamentos = "+ id +"";
+        String SQL = "UPDATE Medicamentos SET Cantidad_Medicamento = "+ cantidad +" WHERE id_Medicamentos = '"+ id +"'";
         try{
             Connection cn = conexion();
             Statement comando=cn.createStatement();
@@ -161,13 +161,13 @@ public class Conexion_BD{
         return resultado;
     }
     
-    public boolean InsertarMedicamentos(int codigo, String nombre, String descripcion, int cantidad, String presentacion){
+    public boolean InsertarMedicamentos(String codigo, String nombre, String descripcion, int cantidad, String presentacion){
         Connection cn = conexion();
-        String SQL = "INSERT INTO medicamentos VALUES (?,?,?,?,?);";
+        String SQL = "INSERT INTO Medicamentos VALUES (?,?,?,?,?);";
         try{
             PreparedStatement pst = cn.prepareStatement(SQL);
             
-            pst.setInt(1, codigo);
+            pst.setString(1, codigo);
             pst.setString(2, nombre);
             pst.setString(3, descripcion);
             pst.setInt(4, cantidad);
